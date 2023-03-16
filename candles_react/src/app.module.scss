@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+body {
+    background: #FCE5CE;
+    font-family: 'Libre Baskerville', serif;
+
+}
+
+.app {
+    margin: 50px 60px;
+}
+
+.header {
+    background: #FCE5CE;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+        font-family: 'Climate Crisis', cursive;
+        font-size: 25px;
+    }
+
+    .routes {
+        a {
+            text-decoration: none;
+            color: black;
+            font-weight: 800;
+            margin: 0 25px
+        }
+
+        a:hover {
+            color: #F2BA37;
+        }
+    }
+
+    img{
+        width: 18px;
+        cursor:pointer;
+    }
+}
+
+.hero {
+    background-image: url('../public/background-candle.jpg');
+    background-position: center;
+    background-size: cover;
+
+    .text{
+        padding: 50px;
+        max-width: 500px;
+
+        h1{
+            font-size: 55px;
+            font-weight: 400;
+        }
+
+        p{
+            color: #102512;
+            line-height: 2;
+        }
+    }
+
+    button{
+        margin: 50px;
+        background: #102512;
+        padding: 15px 20px;
+        color: white;
+        font-weight: 800;
+        font-family: 'Libre Baskerville', serif;
+        cursor: pointer;
+    }
+
+    button:hover {
+        color: #F2BA37;
+    }
+}
