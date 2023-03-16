@@ -1,6 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 
+@mixin button-primary {
+    margin: 50px;
+    background: #102512;
+    padding: 15px 20px;
+    color: white;
+    font-weight: 800;
+    font-family: 'Libre Baskerville', serif;
+    cursor: pointer;
+}
+
 body {
     background: #FCE5CE;
     font-family: 'Libre Baskerville', serif;
@@ -35,9 +45,16 @@ body {
         }
     }
 
-    img{
-        width: 18px;
-        cursor:pointer;
+    .cart {
+
+        img{
+            width: 23px;
+            cursor:pointer;
+        }
+
+        .shopping {
+            margin: 2px 15px;
+        }
     }
 }
 
@@ -62,16 +79,63 @@ body {
     }
 
     button{
-        margin: 50px;
-        background: #102512;
-        padding: 15px 20px;
-        color: white;
-        font-weight: 800;
-        font-family: 'Libre Baskerville', serif;
-        cursor: pointer;
+        @include button-primary;
     }
 
     button:hover {
         color: #F2BA37;
+    }
+}
+
+.body {
+    
+    padding: 100px;
+
+    .bodyText {
+        max-width: 550px;
+        text-align: center;
+        margin: auto;
+
+        h1{
+            font-size: 55px;
+            font-weight: 400;
+        }
+
+        p {
+            line-height: 2;
+        }
+
+        button {
+            @include button-primary;
+        }
+
+        button:hover {
+            color: #F2BA37;
+        }
+    }
+}
+
+.footer {
+    background: black;
+    padding: 20px;
+    color: white;
+
+    .footerContainer {
+        text-align: center;
+
+        .logo{
+           font-family: 'Climate Crisis', cursive;
+           font-size: 20px;
+        }
+
+        a{
+            text-decoration: none;
+            margin: 0 10px;
+            color: white;
+        }
+
+        a:hover {
+            color: #F2BA37;
+        }
     }
 }
