@@ -1,0 +1,11 @@
+@mixin button-primary {
+    margin: 30px;
+    background: #102512;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 20px;
+    color: white;
+    font-weight: 800;
+    font-family: 'Libre Baskerville', serif;
+    cursor: pointer;
+}

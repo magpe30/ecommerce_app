@@ -1,0 +1,59 @@
+@import '../../mixins.scss';
+
+.hero {
+    background-image: url('../../../public/background-candle.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+
+    .text{
+        padding: 50px;
+        max-width: 500px;
+
+        h1{
+            font-size: 55px;
+            font-weight: 400;
+        }
+
+        p{
+            color: #102512;
+            line-height: 2;
+        }
+    }
+
+    button{
+        @include button-primary;
+    }
+
+    button:hover {
+        color: #F2BA37;
+    }
+}
+
+.body {
+    
+    padding: 100px;
+
+    .bodyText {
+        max-width: 550px;
+        text-align: center;
+        margin: auto;
+
+        h1{
+            font-size: 55px;
+            font-weight: 400;
+        }
+
+        p {
+            line-height: 2;
+        }
+
+        button {
+            @include button-primary;
+        }
+
+        button:hover {
+            color: #F2BA37;
+        }
+    }
+}

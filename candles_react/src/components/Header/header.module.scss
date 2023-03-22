@@ -1,0 +1,41 @@
+.header {
+    background: #FCE5CE;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logoLink {
+        color: black;
+        text-decoration: none;
+    }
+
+    .logo {
+        font-family: 'Climate Crisis', cursive;
+        font-size: 25px;
+    }
+
+    .routes {
+        a {
+            text-decoration: none;
+            color: black;
+            font-weight: 800;
+            margin: 0 25px
+        }
+
+        a:hover {
+            color: #F2BA37;
+        }
+    }
+
+    .cart {
+
+        img{
+            width: 23px;
+            cursor:pointer;
+        }
+
+        .shopping {
+            margin: 2px 15px;
+        }
+    }
+}

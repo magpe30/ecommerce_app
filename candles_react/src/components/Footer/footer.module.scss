@@ -1,0 +1,25 @@
+.footer {
+    background: black;
+    padding: 20px;
+    color: white;
+    border-radius: 10px;
+
+    .footerContainer {
+        text-align: center;
+
+        .logo{
+           font-family: 'Climate Crisis', cursive;
+           font-size: 20px;
+        }
+
+        a{
+            text-decoration: none;
+            margin: 0 10px;
+            color: white;
+        }
+
+        a:hover {
+            color: #F2BA37;
+        }
+    }
+}

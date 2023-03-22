@@ -1,0 +1,20 @@
+.shopContainer {
+    background-color: #F2BA37;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+
+    .header {
+        h1 {
+            font-size: 55px;
+            font-weight: 400;
+        }
+    }
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px;
+}
+
