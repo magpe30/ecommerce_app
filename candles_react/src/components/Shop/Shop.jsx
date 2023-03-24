@@ -3,6 +3,7 @@ import styles from './shop.module.scss';
 import axiosConfig from '../../axiosConfig';
 
 import Card from './Card/Card';
+import Loader from '../Loader/Loader';
 
 const Shop = () => {
     const [products, setProducts] = useState(null);
@@ -38,14 +39,14 @@ const Shop = () => {
 
             </div>
             <div className={styles.cardContainer}>
-                {
-                    products && products.map((product) => (
+                { isLoading ? <Loader /> :
+                    (products && products.map((product) => (
                         <Card 
                           name={product?.name} 
                           source={product?.get_image} 
                           price={product?.price} 
                         />
-                    ))
+                    )))
                 }
             </div>
         </>
