@@ -9,6 +9,13 @@
             font-size: 55px;
             font-weight: 400;
         }
+
+        @media screen and (max-width: 750px) {
+            h1 {
+                font-size: 25px;
+                font-weight: 600;
+            }
+        }
     }
 }
 
@@ -16,5 +23,9 @@
     display: flex;
     justify-content: space-around;
     margin: 40px;
+
+    @media screen and (max-width: 750px) {
+        flex-direction: column;
+    }
 }
 

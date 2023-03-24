@@ -24,4 +24,16 @@
     button {
         @include button-primary;
     }
+
+    @media screen and (max-width: 1100px) {
+        .cardPic {
+            max-width: 250px;
+            max-height: 150px;
+            border-radius: 5px;
+        }
+
+        .cardInfo {
+            font-size: 15px;
+        }
+    }
 }
