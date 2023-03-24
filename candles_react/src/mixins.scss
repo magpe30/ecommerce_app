@@ -1,6 +1,10 @@
+
+$tabletBreakpoint: 750px;
+$mobileBreakpoint: 500px;
+
 @mixin button-primary {
     margin: 30px;
-    background: #102512;
+    background: #0F3996;
     border: none;
     border-radius: 5px;
     padding: 15px 20px;

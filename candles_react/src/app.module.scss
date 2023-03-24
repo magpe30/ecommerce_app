@@ -9,4 +9,11 @@ body {
 
 .app {
     margin: 10px 60px;
+    color: #0F3996;
+}
+
+@media screen and (max-width: 750px) {
+    .app {
+        margin: 10px 20px;
+    }
 }

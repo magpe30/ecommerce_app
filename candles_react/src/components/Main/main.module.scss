@@ -16,8 +16,15 @@
         }
 
         p{
-            color: #102512;
+            color: #0F3996;
             line-height: 2;
+        }
+
+        @media screen and (max-width: 750px) {
+            h1 {
+                font-size: 25px;
+                font-weight: 600;
+            }
         }
     }
 
@@ -55,5 +62,16 @@
         button:hover {
             color: #F2BA37;
         }
+        @media screen and (max-width: 750px) {
+            
+            h1 {
+                font-size: 25px;
+                font-weight: 600;
+            }
+        }
+    }
+
+    @media screen and (max-width: 750px) {
+        padding: 20px;
     }
 }

@@ -4,8 +4,17 @@
     justify-content: space-between;
     align-items: center;
 
+    .menuIcon {
+        background: none;
+        border: none;
+        
+        img {
+            width: 23px;
+        }
+    }
+
     .logoLink {
-        color: black;
+        color: #0F3996;
         text-decoration: none;
     }
 
@@ -17,7 +26,7 @@
     .routes {
         a {
             text-decoration: none;
-            color: black;
+            color: #0F3996;
             font-weight: 800;
             margin: 0 25px
         }
