@@ -11,6 +11,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Main from './components/Main/Main';
 import Shop from './components/Shop/Shop';
+import Product from './components/Product/Product';
 
 const App = () => {
 
@@ -21,6 +22,7 @@ const App = () => {
           <Routes>
             <Route exact path="/" element={<Main />} />
             <Route exact path="/shop" element={<Shop />} />
+            <Route exact path="/:category_slug/:product_slug" element={<Product />} />
           </Routes>
         <Footer />
       </div>

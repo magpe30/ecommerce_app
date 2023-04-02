@@ -1,6 +1,7 @@
 import styles from './card.module.scss';
+import { Link } from 'react-router-dom';
 
-const Card = ({name, source, price}) => {
+const Card = ({name, source, price, url}) => {
     return (
         <div className={styles.card}>
             <img className={styles.cardPic} alt={`${name} candle`} src={source} />
@@ -8,7 +9,7 @@ const Card = ({name, source, price}) => {
                 <p>{name}</p>
                 <p>{`$ ${price}`}</p>
             </div>
-            <button>View more</button>
+            <Link to={url}><button>View more</button></Link>
         </div>
     )
 };

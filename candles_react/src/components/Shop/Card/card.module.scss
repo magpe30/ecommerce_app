@@ -25,6 +25,10 @@
         @include button-primary;
     }
 
+    button:hover {
+        color: #F2BA37;
+    }
+
     @media screen and (max-width: 1100px) {
         .cardPic {
             max-width: 250px;
