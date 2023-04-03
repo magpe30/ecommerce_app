@@ -10,8 +10,11 @@ const Menu = () => {
               <Link href="/blog" className={styles.link}>BLOG</Link>
             </div>
             <div className={styles.cart}>
-              <img src="icon-customer.png" alt="shopping cart"/>
-              <img src="icon-bag.png" alt="shopping cart" className={styles.cart}/>
+              <button>Sign in</button>
+              <div className={styles.bag}>
+                <p>Cart</p>
+                <span>0</span>
+              </div>
             </div>
         </div>
     )

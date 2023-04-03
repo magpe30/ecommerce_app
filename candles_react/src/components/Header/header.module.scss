@@ -1,3 +1,5 @@
+@import '../../mixins.scss';
+
 .header {
     background: #FCE5CE;
     display: flex;
@@ -37,14 +39,22 @@
     }
 
     .cart {
+        display: flex;
 
-        img{
-            width: 23px;
-            cursor:pointer;
+        button {
+            @include button-primary;
         }
 
-        .shopping {
-            margin: 2px 15px;
+        .bag {
+            display: flex;
+            align-items: center;
+
+            span {
+                margin-left: 5px;
+                background-color:#F2BA37;
+                padding: 10px 10px;
+                border-radius: 50%;
+            }
         }
     }
 }

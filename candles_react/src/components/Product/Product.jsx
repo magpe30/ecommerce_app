@@ -30,7 +30,9 @@ const Product = () => {
       getProduct();
     },[]);
 
-
+    if(isLoading) {
+        return <Loader />
+    }
 
     return (
         <div className={styles.product}>
@@ -50,7 +52,7 @@ const Product = () => {
                         <form>
                            <input
                             type={"number"}
-                            pattern={"^[0-9]+$"}
+                            pattern="^[0-9]+$"
                             inputMode={"numeric"}
                             min={1}
                             placeholder={1}
