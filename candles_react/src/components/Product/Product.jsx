@@ -25,7 +25,7 @@ const Product = () => {
             setIsLoading(false);
         }
     }
-    console.log(product)
+
     useEffect(() => {
       getProduct();
     },[]);
