@@ -12,6 +12,7 @@ import Footer from './components/Footer/Footer';
 import Main from './components/Main/Main';
 import Shop from './components/Shop/Shop';
 import Product from './components/Product/Product';
+import About from './components/About/About';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
           <Routes>
             <Route exact path="/" element={<Main />} />
             <Route exact path="/shop" element={<Shop />} />
+            <Route exact path="/about" element={<About />} />
             <Route exact path="/:category_slug/:product_slug" element={<Product />} />
           </Routes>
         <Footer />

@@ -37,7 +37,7 @@ const Header = () => {
           : <>
               <div className={styles.routes}>
               <Link to='/shop'>SHOP</Link>
-              <Link href="/about">ABOUT</Link>
+              <Link to="/about">ABOUT</Link>
               <Link href="/blog">BLOG</Link>
               </div>
               <div className={styles.cart}>

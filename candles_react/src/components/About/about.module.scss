@@ -1,0 +1,48 @@
+.heroSection {
+    display: flex;
+    align-items: center;
+    background-color:#F2BA37;
+    border-radius: 15px;
+
+    h1{
+        font-weight: 800;
+    }
+
+    img{
+        height: inherit;
+        object-fit: cover;
+        width: 100%;
+        max-width: 100%;
+        max-height: 350px;
+        border-radius: 0 15px 15px 0;
+    }
+
+    .heroContent {
+        padding: 30px;
+    }
+}
+
+.aboutInfo {
+    margin: auto;
+    text-align:center;
+    padding: 100px;
+    max-width: 550px;
+
+    p{
+        line-height: 2;
+    }
+}
+
+@media screen and (max-width: 830px) {
+    .heroSection {
+        flex-direction: column;
+
+        img {
+            border-radius: 0 0 15px 15px;  
+        }
+    }
+
+    .aboutInfo {
+        padding: 50px;
+    }
+}

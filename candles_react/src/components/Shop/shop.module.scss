@@ -1,13 +1,17 @@
 .shopContainer {
     background-color: #F2BA37;
     border-radius: 15px;
-    padding: 40px;
+    padding: 60px;
     text-align: center;
 
     .header {
         h1 {
             font-size: 55px;
             font-weight: 400;
+        }
+
+        p {
+            font-size: 18px;
         }
 
         @media screen and (max-width: 750px) {
