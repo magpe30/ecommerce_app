@@ -4,10 +4,6 @@
     background-color:#F2BA37;
     border-radius: 15px;
 
-    h1{
-        font-weight: 800;
-    }
-
     img{
         height: inherit;
         object-fit: cover;
@@ -19,6 +15,10 @@
 
     .heroContent {
         padding: 30px;
+
+        .heading{
+            font-size: 35px;
+        }
     }
 }
 

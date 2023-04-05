@@ -29,12 +29,32 @@ const Shop = () => {
       getData();
     }, []);
 
+    const getCategory = async(category) => {
+      try {
+        setIsLoading(true);
+        const data = await axiosConfig.get(
+            `/api/v1/products/${category}`
+        );
+        const dataSet = data?.data;
+        setProducts(dataSet?.products);
+      } catch (error) {
+        setIsError(true);
+        console.log(error);
+      } finally {
+          setIsLoading(false);
+      }
+    }
+
     return (
         <>
             <div className={styles.shopContainer}>
               <div className={styles.header}>
                 <h1>All candles</h1>
                 <p>Please look through our inventory and pick a candle for your home</p>
+                <div className={styles.links}>
+                  <button onClick={() => getCategory("floral")}>floral</button>
+                  <button onClick={() => getCategory("fruity")}>fruity</button>
+                </div>
               </div>
 
             </div>

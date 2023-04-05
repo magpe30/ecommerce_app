@@ -1,7 +1,7 @@
 .shopContainer {
     background-color: #F2BA37;
     border-radius: 15px;
-    padding: 60px;
+    padding: 45px;
     text-align: center;
 
     .header {
@@ -12,6 +12,20 @@
 
         p {
             font-size: 18px;
+        }
+
+        .links {
+
+            button {
+                background: none;
+                border: none;
+                cursor: pointer;
+                font-size: 20px;
+                margin: 20px 10px 0 10px;
+                color:#0F3996;
+                font-weight: 800;
+                text-decoration: overline wavy;
+            }
         }
 
         @media screen and (max-width: 750px) {
