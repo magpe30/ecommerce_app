@@ -48,12 +48,19 @@
         .bag {
             display: flex;
             align-items: center;
+            text-decoration: none;
+            font-weight: 800;
+            color:#0F3996;
 
             span {
+                text-align: center;
+                width: 20px;
+                height: 20px;
                 margin-left: 5px;
                 background-color:#F2BA37;
                 padding: 10px 10px;
                 border-radius: 50%;
+                text-decoration: none;
             }
         }
     }

@@ -42,10 +42,10 @@ const Header = () => {
               </div>
               <div className={styles.cart}>
                 <button>Sign in</button>
-                <div className={styles.bag}>
+                <Link className={styles.bag} to="/cart">
                   <p>Cart</p>
                   <span>0</span>
-                </div>
+                </Link>
               </div>
             </> 
         }

@@ -6,7 +6,6 @@
     box-shadow: 0 15px 15px rgb(197, 180, 180);
     width: 100%;
     text-align: center;
-    padding: 15px 20px;
     left:0;
 
     .routes {
@@ -39,6 +38,9 @@
             align-items: center;
 
             span {
+                width: 20px;
+                height: 20px;
+                text-align: center;
                 margin-left: 5px;
                 background-color:#F2BA37;
                 padding: 10px 10px;

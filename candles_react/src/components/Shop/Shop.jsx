@@ -54,6 +54,7 @@ const Shop = () => {
                 <div className={styles.links}>
                   <button onClick={() => getCategory("floral")}>floral</button>
                   <button onClick={() => getCategory("fruity")}>fruity</button>
+                  <button onClick={() => getData()}>all</button>
                 </div>
               </div>
 
