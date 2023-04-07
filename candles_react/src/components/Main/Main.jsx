@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './main.module.scss';
 
 const Main = () => {
@@ -20,7 +21,7 @@ const Main = () => {
                     product range - created by our in-house design team and global brand partnership.
                     We are praised for individuality, design and quality.
                 </p>
-                <button>Learn more</button>
+                <Link to="/about"><button>Learn more</button></Link>
             </div>
         </div>
     </>

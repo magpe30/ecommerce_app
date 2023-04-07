@@ -42,7 +42,12 @@
         display: flex;
 
         button {
+            margin-right: 20px;
             @include button-primary;
+        }
+
+        button:hover {
+            color: #F2BA37;
         }
 
         .bag {

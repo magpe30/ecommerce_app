@@ -1,10 +1,13 @@
 import styles from'./app.module.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
   BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
+
+import { ToastContainer } from 'react-toastify';
 
 
 import Header from './components/Header/Header';
@@ -21,6 +24,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className={styles.app}>
+        <ToastContainer />
         <Header />
           <Routes>
             <Route exact path="/" element={<Main />} />

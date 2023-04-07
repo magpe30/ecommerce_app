@@ -5,14 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { configureStore } from '@reduxjs/toolkit';
-import { productsFetch } from './features/productsSlice';
+import productsReducer, { productsFetch } from './features/productsSlice';
 import { Provider } from 'react-redux';
+import { productsApi } from './features/productsApi';
+import cartReducer from './features/cartSlice'
 
-import productsReducer from './features/productsSlice';
 
 const store = configureStore({
   reducer: {
     products: productsReducer,
+    cart: cartReducer,
+    [productsApi.reducerPath]: productsApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) => {
+     return getDefaultMiddleware().concat(productsApi.middleware);
   }
 });
 

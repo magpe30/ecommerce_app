@@ -1,37 +1,24 @@
 import { useEffect, useState } from 'react';
 import styles from './shop.module.scss';
+import { useGetAllProductsQuery } from '../../features/productsApi';
 import axiosConfig from '../../axiosConfig';
 
 import Card from './Card/Card';
 import Loader from '../Loader/Loader';
 
 const Shop = () => {
+    const { data, isLoading } = useGetAllProductsQuery();
     const [products, setProducts] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
+    const [ loading, setLoading] = useState(false);
     const [isError, setIsError] = useState(false);
 
-    const getData = async() => {
-        try {
-          setIsLoading(true);
-          const data = await axiosConfig.get(
-              `/api/v1/latest-products`
-          );
-          const dataSet = data?.data;
-          setProducts(dataSet);
-        } catch (error) {
-          setIsError(true);
-        } finally {
-            setIsLoading(false);
-        }
-    }
-    
     useEffect(() => {
-      getData();
-    }, []);
+      setProducts(data);
+    }, [data]);
 
     const getCategory = async(category) => {
       try {
-        setIsLoading(true);
+        setLoading(true);
         const data = await axiosConfig.get(
             `/api/v1/products/${category}`
         );
@@ -41,8 +28,12 @@ const Shop = () => {
         setIsError(true);
         console.log(error);
       } finally {
-          setIsLoading(false);
+          setLoading(false);
       }
+    }
+
+    const getData = () => {
+      setProducts(data);
     }
 
     return (
@@ -60,7 +51,7 @@ const Shop = () => {
 
             </div>
             <div className={styles.cardContainer}>
-                { isLoading ? <Loader /> :
+                { loading || isLoading ? <Loader /> :
                     (products && products.map((product, i) => (
                         <Card 
                           name={product?.name} 

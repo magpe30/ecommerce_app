@@ -1,0 +1,93 @@
+@import '../../mixins.scss';
+
+.cartContainer {
+    margin-top: 60px;
+
+    h1{
+        margin-bottom: 40px;
+    }
+}
+
+.emptyCart {
+    text-align: center;
+    margin: 100px 0;
+    min-height: 450px;
+
+    p {
+        margin-bottom: 50px;
+    }
+
+    button {
+        @include button-primary;
+    }
+
+    button:hover {
+        color: #F2BA37;
+    }
+}
+
+.item, .titles {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    column-gap: 10px;
+}
+
+.titles {
+    p {
+        font-size: 14px;
+    }
+}
+
+.item {
+    border-top: 1px solid;
+    padding: 20px 0;
+
+    .product {
+        display: flex;
+    }
+
+    img {
+        margin-right: 15px;
+    }
+
+    button {
+        @include button-primary;
+    }
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+
+    button {
+        margin: 0 5px;
+    }
+}
+
+.summary {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+
+    .checkout {
+
+        margin: 50px 0;
+
+        span {
+            font-size: 25px;
+            margin: 0 10px;
+            font-weight: 800;
+        }
+
+        button {
+            @include button-primary;
+            width: 100%; 
+            margin-top: 20px;
+        }
+
+        button:hover {
+            color:#F2BA37;
+        }
+    }
+}

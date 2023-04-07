@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../features/cartSlice';
 import Loader from '../Loader/Loader';
 import axiosConfig from '../../axiosConfig';
 
@@ -7,9 +9,11 @@ import styles from './product.module.scss';
 
 const Product = () => {
     const [product, setProduct] = useState(null);
+    const [val, setVal] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
     const { category_slug, product_slug } = useParams();
+    const dispatch = useDispatch();
 
     const getProduct = async() => {
         try {
@@ -30,8 +34,20 @@ const Product = () => {
       getProduct();
     },[]);
 
+    const handleChange = (e) => {
+        e.preventDefault();
+        const regex = /^[0-9\b]+$/;
+        if (e.target.value === "" || regex.test(e.target.value)) {
+          setVal(e.target.value);
+        }
+    };
+
     if(isLoading) {
         return <Loader />
+    }
+
+    const handleAddToCart = (product) => {
+        dispatch(addToCart(product))
     }
 
     return (
@@ -49,16 +65,13 @@ const Product = () => {
                     <span>Scent: {category_slug}</span>
 
                     <div className={styles.cartContainer}>
-                        <form>
-                           <input
-                            type={"number"}
-                            pattern="^[0-9]+$"
-                            inputMode={"numeric"}
-                            min={1}
-                            placeholder={1}
-                           ></input>
-                           <button>Add to Cart</button>
-                        </form>
+                    <input
+                        placeholder="1"
+                        type="number"
+                        value={val}
+                        onChange={handleChange}
+                    />
+                        <button disabled={!val} onClick={() => handleAddToCart({...product, quantity: val })}>Add to Cart</button>
                     </div>
                 </div>
             </div>

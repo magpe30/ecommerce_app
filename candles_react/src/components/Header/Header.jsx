@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-
-import styles from './header.module.scss';
 import { Link } from 'react-router-dom';
+import styles from './header.module.scss';
 
 import Menu from './Menu/Menu';
 

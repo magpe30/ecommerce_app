@@ -29,6 +29,7 @@
     }
 
     button{
+        margin: 0 0 30px 45px;
         @include button-primary;
     }
 
@@ -56,6 +57,9 @@
         }
 
         button {
+            color: white;
+            text-decoration: none;
+            margin-top: 40px;
             @include button-primary;
         }
 
