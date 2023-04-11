@@ -36,6 +36,7 @@
 .titles {
     p {
         font-size: 14px;
+        font-weight: 900;
     }
 }
 
@@ -54,6 +55,12 @@
     button {
         @include button-primary;
     }
+
+    .remove {
+        background: #F2BA37;
+        color:#0F3996;
+        padding: 5px 8px;
+    }
 }
 
 .quantity {
@@ -69,6 +76,7 @@
     display: flex;
     justify-content: flex-end;
     margin-top: 20px;
+    border-top: 1px solid;
 
     .checkout {
 
@@ -76,7 +84,7 @@
 
         span {
             font-size: 25px;
-            margin: 0 10px;
+            margin:0 10px 0 0;
             font-weight: 800;
         }
 
