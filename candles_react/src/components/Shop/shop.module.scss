@@ -29,6 +29,7 @@
         }
 
         @media screen and (max-width: 750px) {
+
             h1 {
                 font-size: 25px;
                 font-weight: 600;
@@ -43,6 +44,7 @@
     margin: 100px 10px;
 
     @media screen and (max-width: 750px) {
+        margin: 40px 10px;
         flex-direction: column;
     }
 }

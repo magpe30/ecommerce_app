@@ -1,15 +1,29 @@
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { removeFromCart } from '../../features/cartSlice'
+import { increaseCart, removeFromCart, decreaseCart, getTotal } from '../../features/cartSlice'
 import styles from './cart.module.scss';
 
 const Cart = () => {
     const cart = useSelector(state => state.cart);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(getTotal())
+    }, [cart, dispatch])
+    
     const handleRemove = (cartItem) => {
         dispatch(removeFromCart(cartItem))
     };
+
+    const handleDecrease = (cartItem) => {
+        dispatch(decreaseCart(cartItem))
+    }
+    
+    
+    const handleIncrease = (item) => {
+        dispatch(increaseCart(item))
+    }
 
     return (
         <div className={styles.cartContainer}>
@@ -30,9 +44,9 @@ const Cart = () => {
                         <p>TOTAL</p>
                     </div>
                     {
-                        cart.cartItems?.map((cartItem) => (
-                          <>
-                            <div className={styles.item} key={`${cartItem.id}-item`}>
+                        cart.cartItems?.map((cartItem, id) => (
+                          <div key={`${cartItem}-item-${id}`}>
+                            <div className={styles.item}>
                                 <div className={styles.product}>
                                     <img src={cartItem.get_thumbnail}  alt={cartItem.name} />
                                     <div>
@@ -47,15 +61,15 @@ const Cart = () => {
                                     ${cartItem.price}
                                 </div>
                                 <div className={styles.quantity}>
-                                    <button>-</button>
+                                    <button onClick={() => handleDecrease(cartItem)}>-</button>
                                     <div className={styles.count}>{cartItem.quantity}</div>
-                                    <button>+</button>
+                                    <button onClick={() => handleIncrease(cartItem)}>+</button>
                                 </div>
                                 <div className={styles.total}>
                                     ${ cartItem.price * cartItem.quantity }
                                 </div>
                             </div>
-                          </>    
+                          </div>    
                         ))
                     }
                     <div className={styles.summary}>

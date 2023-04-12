@@ -1,13 +1,19 @@
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from './header.module.scss';
 
 import Menu from './Menu/Menu';
 
 const Header = () => {
+  const { cartTotalQuantity } = useSelector(state => {
+    console.log(state.cart);
+    return state.cart
+  });
+
   const [onClick, setOnClick] = useState(false);
   const [windowDimension, setWindowDimension] = useState(null);
-
+  console.log(cartTotalQuantity);
   useEffect(() => {
     setWindowDimension(window.innerWidth);
   }, []);
@@ -43,7 +49,7 @@ const Header = () => {
                 <button>Sign in</button>
                 <Link className={styles.bag} to="/cart">
                   <p>Cart</p>
-                  <span>0</span>
+                  <span>{cartTotalQuantity}</span>
                 </Link>
               </div>
             </> 

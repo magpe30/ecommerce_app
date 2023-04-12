@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../../features/cartSlice';
+import { addToCart, getTotal } from '../../features/cartSlice';
 import Loader from '../Loader/Loader';
 import axiosConfig from '../../axiosConfig';
 
@@ -32,13 +32,13 @@ const Product = () => {
 
     useEffect(() => {
       getProduct();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     const handleChange = (e) => {
-        e.preventDefault();
-        const regex = /^[0-9\b]+$/;
+        const regex = /^[1-9\b]+$/;
         if (e.target.value === "" || regex.test(e.target.value)) {
-          setVal(e.target.value);
+          setVal(Number(e.target.value));
         }
     };
 
@@ -47,7 +47,8 @@ const Product = () => {
     }
 
     const handleAddToCart = (product) => {
-        dispatch(addToCart(product))
+        dispatch(addToCart(product));
+        dispatch(getTotal());
     }
 
     return (
