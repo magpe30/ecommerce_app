@@ -26,6 +26,11 @@ const cartSlice = createSlice({
             )
 
             state.cartItems = nextCartItems;
+            localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+
+            toast.success("item deleted successfully", {
+                position: 'bottom-left'
+            })
         }
     }
 });
