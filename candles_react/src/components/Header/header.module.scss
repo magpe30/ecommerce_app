@@ -41,12 +41,13 @@
     .cart {
         display: flex;
 
-        button {
+        .signInLink {
             margin-right: 20px;
+            text-decoration: none;
             @include button-primary;
         }
 
-        button:hover {
+        .signInLink:hover {
             color: #F2BA37;
         }
 

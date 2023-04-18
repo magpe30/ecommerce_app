@@ -30,14 +30,22 @@
         justify-content: center;
         margin-bottom: 30px;
 
-        button {
+        .signInLink {
             margin-right: 20px;
+            text-decoration: none;
             @include button-primary;
+        }
+
+        .signInLink:hover {
+            color: #F2BA37;
         }
 
         .bag {
             display: flex;
             align-items: center;
+            text-decoration: none;
+            font-weight: 800;
+            color: #0F3996;
 
             span {
                 width: 20px;

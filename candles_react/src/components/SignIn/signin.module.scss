@@ -1,0 +1,45 @@
+@import '../../mixins.scss';
+
+.formContainer {
+    text-align: center;
+    margin: 70px 0;
+
+    .formBlock {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        text-align: left;
+        max-width: 500px;
+
+        input {
+            padding: 15px 10px;
+            background: none;
+            border: 2px solid #0F3996;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        label {
+            margin-top: 20px;
+        }
+
+        button {
+            margin: 35px 0;
+            @include button-primary;
+        }
+    }
+
+    .error {
+        color: rgb(179, 98, 98);
+        font-weight: 800;
+    }
+
+    .loginLink {
+        color: #0F3996;
+        background:#F2BA37;
+        font-weight: 800;
+        padding: 5px 7px;
+        text-decoration: none;
+        border-radius: 10px;
+    }
+}

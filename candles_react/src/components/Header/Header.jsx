@@ -7,13 +7,12 @@ import Menu from './Menu/Menu';
 
 const Header = () => {
   const { cartTotalQuantity } = useSelector(state => {
-    console.log(state.cart);
     return state.cart
   });
 
   const [onClick, setOnClick] = useState(false);
   const [windowDimension, setWindowDimension] = useState(null);
-  console.log(cartTotalQuantity);
+ 
   useEffect(() => {
     setWindowDimension(window.innerWidth);
   }, []);
@@ -46,7 +45,7 @@ const Header = () => {
               <Link href="/blog">BLOG</Link>
               </div>
               <div className={styles.cart}>
-                <button>Sign in</button>
+                <Link to="/signin" className={styles.signInLink} >Sign in</Link>
                 <Link className={styles.bag} to="/cart">
                   <p>Cart</p>
                   <span>{cartTotalQuantity}</span>
