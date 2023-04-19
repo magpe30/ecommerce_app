@@ -12,7 +12,8 @@ const SignIn = () => {
     const navigate = useNavigate();
     const [isMatchingPasswords, setIsMatchingPasswords] = useState(true);
     const [signError, setSignError] = useState(false);
-
+    const [errorMessages, setErrorMessages] = useState([]);
+    
     const {
         register,
         handleSubmit,
@@ -39,7 +40,13 @@ const SignIn = () => {
                 navigate("/login");
             }
         }).catch((err) => {
-            setSignError(true);
+            if(err.response) {
+                for (const property in err.response.data) {
+                    setErrorMessages([...err.response.data[property]])
+                }
+            } else {
+                setSignError(true);
+            }
         })
 
 
@@ -73,6 +80,11 @@ const SignIn = () => {
                 {errors.passwordConfirm && <p className={styles.error}>Confirm Password does not match password</p>}
                 {!isMatchingPasswords && <p className={styles.error}>Passwords do not match</p>}
                 {signError && <p className={styles.error}>Ups, something went wrong. Please try again</p>}
+                {
+                    errorMessages?.length > 0 && errorMessages.map((message) => (
+                        <p key={message} className={styles.error}>{message}</p>
+                    ))
+                }
                 <button type="submit">
                     Submit
                 </button>

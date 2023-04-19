@@ -1,8 +1,15 @@
+import { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+
+import axiosConfig from '../../axiosConfig';
 import styles from '../SignIn/signin.module.scss';
 
 const Login = () => {
+    const navigate = useNavigate();
+    const [loginErrors, setLoginErrors] = useState(false);
+    const [errorMessages, setErrorMessages] = useState([]);
 
     const {
         register,
@@ -10,8 +17,28 @@ const Login = () => {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = () => {
+    const onSubmit = async(data) => {
+        axiosConfig.defaults.headers.common['Authorization'] = '';
+        localStorage.removeItem('token');
+        const formData = {
+            username: data.username,
+            password: data.password,
+        }
 
+        try {
+            const response = await axiosConfig.post('/api/v1/token/login/', formData);
+            const token = response.data.auth_token;
+            localStorage.setItem('token', token);
+            navigate('/cart')
+        } catch (err) {
+            if(err.response) {
+                for (const property in err.response.data) {
+                    setErrorMessages([...err.response.data[property]])
+                }
+            } else {
+                setLoginErrors(true);
+            }
+        }
     };
 
     return (
@@ -39,6 +66,12 @@ const Login = () => {
                     Login
                 </button>
             </form>
+            {loginErrors && <p>Ups something went wrong</p>}
+            {
+                errorMessages?.length > 0 && errorMessages.map((message) => (
+                    <p key={message} className={styles.error}>{message}</p>
+                ))
+            }
             <p>Don't have an account? <Link to='/signin' className={styles.loginLink}>Create account</Link></p>
         </section>
     )
