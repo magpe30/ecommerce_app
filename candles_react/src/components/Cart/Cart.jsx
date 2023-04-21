@@ -6,6 +6,7 @@ import styles from './cart.module.scss';
 
 const Cart = () => {
     const cart = useSelector(state => state.cart);
+    const token = useSelector(state => state.auth.token);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -79,9 +80,11 @@ const Cart = () => {
                                 ${cart.cartTotalAmount}
                             </span>
                             <p>Taxes added at the checkout</p>
-                            <div>
-                                <button>Checkout</button>
-                            </div>
+                            {
+                                token ? <button className={styles.checkoutButton}><Link to="/checkout">Checkout</Link></button> :
+                                <button className={styles.checkoutButton}><Link to="/login">Login to checkout</Link></button>
+                            }
+                          
                         </div>
                     </div>
                 </div>

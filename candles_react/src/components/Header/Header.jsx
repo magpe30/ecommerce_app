@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import {useNavigate} from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { logout } from '../../features/authSlice';
 import styles from './header.module.scss';
 
 import Menu from './Menu/Menu';
@@ -9,7 +11,10 @@ const Header = () => {
   const { cartTotalQuantity } = useSelector(state => {
     return state.cart
   });
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const token = useSelector(state => state.auth.token);
+  
   const [onClick, setOnClick] = useState(false);
   const [windowDimension, setWindowDimension] = useState(null);
  
@@ -32,6 +37,11 @@ const Header = () => {
 
   const slug = onClick ? 'cross' : 'menu';
 
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate('/');
+  }
+
   return (
     <>
       <div className={styles.header}>
@@ -45,7 +55,10 @@ const Header = () => {
               <Link href="/blog">BLOG</Link>
               </div>
               <div className={styles.cart}>
-                <Link to="/signin" className={styles.signInLink} >Sign in</Link>
+                {
+                  token ? <button className={styles.signInLink} onClick={() => handleLogout()}>Logout</button> :
+                  <Link to="/signin" className={styles.signInLink} >Sign in</Link>
+                }
                 <Link className={styles.bag} to="/cart">
                   <p>Cart</p>
                   <span>{cartTotalQuantity}</span>

@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import { login } from '../../features/authSlice';
 
 import axiosConfig from '../../axiosConfig';
 import styles from '../SignIn/signin.module.scss';
 
 const Login = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const [loginErrors, setLoginErrors] = useState(false);
     const [errorMessages, setErrorMessages] = useState([]);
@@ -28,7 +31,7 @@ const Login = () => {
         try {
             const response = await axiosConfig.post('/api/v1/token/login/', formData);
             const token = response.data.auth_token;
-            localStorage.setItem('token', token);
+            dispatch(login('token', token));
             navigate('/cart')
         } catch (err) {
             if(err.response) {

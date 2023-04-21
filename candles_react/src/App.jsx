@@ -19,6 +19,7 @@ import About from './components/About/About';
 import Cart from './components/Cart/Cart';
 import SignIn from './components/SignIn/SignIn';
 import Login from './components/Login/Login';
+import Checkout from './components/Checkout/Checkout';
 import NotFound from './components/NotFound/NotFound';
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
             <Route exact path="/cart" element={<Cart />} />
             <Route exact path="/signin" element={<SignIn />} />
             <Route exact path="/login" element={<Login />} />
+            <Route exact path='/checkout' element={<Checkout />} />
             <Route path='*' element={<NotFound />}/>
           </Routes>
         <Footer />
