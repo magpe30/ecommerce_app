@@ -51,7 +51,7 @@ const Shop = () => {
 
             </div>
             <div className={styles.cardContainer}>
-                { loading || isLoading ? <Loader /> :
+                { loading || isLoading ? <Loader  size={'big'}/> :
                     (products && products.map((product, i) => (
                         <Card 
                           name={product?.name} 

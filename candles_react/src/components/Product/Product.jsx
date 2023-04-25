@@ -43,7 +43,7 @@ const Product = () => {
     };
 
     if(isLoading) {
-        return <Loader />
+        return <Loader size={'big'}/>
     }
 
     const handleAddToCart = (product) => {
