@@ -50,7 +50,7 @@ const Cart = () => {
                             <div className={styles.item}>
                                 <div className={styles.product}>
                                     <img src={cartItem.get_thumbnail}  alt={cartItem.name} />
-                                    <div>
+                                    <div className={styles.cartItemText}>
                                         <h3>{cartItem.name}</h3>
                                         <button 
                                           className={styles.remove}
