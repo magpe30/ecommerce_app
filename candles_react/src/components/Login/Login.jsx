@@ -31,7 +31,7 @@ const Login = () => {
         try {
             const response = await axiosConfig.post('/api/v1/token/login/', formData);
             const token = response.data.auth_token;
-            dispatch(login('token', token));
+            dispatch(login(token));
             navigate('/cart')
         } catch (err) {
             if(err.response) {

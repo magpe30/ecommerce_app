@@ -24,7 +24,7 @@ const cartSlice = createSlice({
                 state.cartItems.push(action.payload);
             }
             toast.success("Product added to cart", {
-                position: "top-right",
+                position: "top-left",
             });
             localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
         },
@@ -37,7 +37,7 @@ const cartSlice = createSlice({
             localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
 
             toast.success("item deleted successfully", {
-                position: "top-right"
+                position: "top-left"
             })
         },
         decreaseCart(state, action) {
@@ -55,7 +55,7 @@ const cartSlice = createSlice({
                 state.cartItems = nextCartItems;
 
                 toast.success("item deleted successfully", {
-                    position: "top-right"
+                    position: "top-left"
                 })
             }
 
@@ -85,10 +85,17 @@ const cartSlice = createSlice({
 
             state.cartTotalQuantity = quantity;
             state.cartTotalAmount = total;
+        },
+        clearCart(state, action) {
+            state.cartItems = [];
+            state.cartTotalQuantity = 0;
+            state.cartTotalAmount = 0;
+            localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
+            toast.success('cart clearned', {position: 'top-left'})
         }
     }
 });
 
-export const { addToCart, removeFromCart, decreaseCart, increaseCart, getTotal } = cartSlice.actions;
+export const { addToCart, removeFromCart, decreaseCart, increaseCart, getTotal, clearCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
