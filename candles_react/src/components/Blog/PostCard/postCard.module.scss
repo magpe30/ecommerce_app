@@ -1,0 +1,38 @@
+.postCardContainer {
+    text-align: center;
+    max-width: 600px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+
+    img {
+        border-radius: 10px;
+        width: 100%;
+    }
+
+    .postCardText {
+        padding: 10px 10px;
+    }
+}
+
+.infoContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    .author{
+        display: flex;
+        
+        img {
+            max-width: 50px;
+            max-height: 50px;
+            margin-right: 15px;
+            border-radius: 10px;
+        }
+    }
+
+    .categories {
+        background-color: #F2BA37;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+}

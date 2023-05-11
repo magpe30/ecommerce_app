@@ -110,7 +110,7 @@
         text-align: right;
         display: flex;
         flex-direction: column;
-        align-items: start;
+        align-items: flex-start;
     }
 
     .price {
@@ -130,7 +130,7 @@
     .product {
         display: flex;
         flex-direction: column;
-        align-items: start;
+        align-items: flex-start;
     }
 
     .cartItemText {

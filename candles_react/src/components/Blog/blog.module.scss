@@ -1,0 +1,14 @@
+.blogContent {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    overflow: visible;
+}
+
+.widgets {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    display: block;
+    background: red;
+}

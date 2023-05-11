@@ -20,6 +20,7 @@ import Main from './components/Main/Main';
 import Shop from './components/Shop/Shop';
 import Product from './components/Product/Product';
 import About from './components/About/About';
+import Blog from './components/Blog/Blog';
 import Cart from './components/Cart/Cart';
 import Success from './components/Success/Success';
 import SignIn from './components/SignIn/SignIn';
@@ -40,6 +41,7 @@ const App = () => {
             <Route exact path="/" element={<Main />} />
             <Route exact path="/shop" element={<Shop />} />
             <Route exact path="/about" element={<About />} />
+            <Route exact path='/blog' element={<Blog />} />
             <Route exact path="/:category_slug/:product_slug" element={<Product />} />
             <Route exact path="/cart" element={<Cart />} />
             <Route exact path="/cart/success" element={<Success />} />
