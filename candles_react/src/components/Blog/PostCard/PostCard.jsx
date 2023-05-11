@@ -2,7 +2,7 @@ import styles from './postCard.module.scss';
 
 const PostCard = ({ data }) => {
     const posts = data?.edges;
-    console.log(data);
+    
     return (
         <div>
             {
