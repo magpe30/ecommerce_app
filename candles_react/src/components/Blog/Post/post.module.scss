@@ -1,0 +1,40 @@
+.postContainer {
+    margin: 0 auto;
+    max-width: 650px;
+
+    img {
+        border-radius: 5px;    
+    }
+
+    .featuredImage {
+        filter: grayscale(100%);
+        opacity: 0.7;
+        width: 100%;
+    }
+
+    h1 {
+        position: absolute;
+        background: #F2BA37;
+        border-radius: 5px;
+        font-size: 40px;
+        margin-left: 10px;
+        max-width: 550px;
+        padding-left: 5px;
+        transform: translateY(-100px)
+    }
+
+    .postInfo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 55px;
+
+        .author {
+            display: flex;
+
+            img {
+                max-width: 50px;
+            }
+        }
+    }
+}

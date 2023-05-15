@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart, getTotal } from '../../features/cartSlice';
@@ -32,7 +32,6 @@ const Product = () => {
 
     useEffect(() => {
       getProduct();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     const handleChange = (e) => {

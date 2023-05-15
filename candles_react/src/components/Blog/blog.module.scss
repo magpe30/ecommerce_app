@@ -1,3 +1,10 @@
+.blogContainer {
+    .title {
+        text-align: center;
+        margin: 50px 0;
+    }
+}
+
 .blogContent {
     display: flex;
     justify-content: space-around;
@@ -10,5 +17,4 @@
     position: -webkit-sticky;
     top: 0;
     display: block;
-    background: red;
 }

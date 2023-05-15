@@ -1,7 +1,7 @@
 .postCardContainer {
     text-align: center;
     max-width: 600px;
-    margin-bottom: 30px;
+    margin: 30px 0;
     border-radius: 15px;
 
     img {
@@ -11,6 +11,15 @@
 
     .postCardText {
         padding: 10px 10px;
+    }
+
+    .postLink {
+        cursor: pointer;
+        font-size: 20px;
+        margin: 20px 10px 0 10px;
+        color:#0F3996;
+        font-weight: 800;
+        text-decoration: underline wavy #F2BA37;
     }
 }
 
