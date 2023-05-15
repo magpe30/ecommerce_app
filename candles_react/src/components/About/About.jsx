@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect } from 'react';
 import styles from './about.module.scss';
 
@@ -32,7 +33,7 @@ const About = () => {
                     One of the things that sets us apart from other candle makers is 
                     our hand-painted pots. Each of our candles is housed in a pot that has 
                     been hand-painted with funky and colorful symmetric patterns. Our pots 
-                    are not only unique and eye-catching, but they're also reusable, 
+                    are not only unique and eye-catching, but they&aposre also reusable, 
                     so you can enjoy them long after your candle has burned down.
                 </p>
           </div>

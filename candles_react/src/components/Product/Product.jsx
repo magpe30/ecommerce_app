@@ -45,6 +45,10 @@ const Product = () => {
         return <Loader size={'big'}/>
     }
 
+    if(isError) {
+        console.log("console error for now")
+    }
+
     const handleAddToCart = (product) => {
         dispatch(addToCart(product));
         dispatch(getTotal());

@@ -1,6 +1,8 @@
+import React from 'react';
 import styles from './loader.module.scss';
+import PropTypes from 'prop-types';
 
-const Loader = ({size}) => {
+const Loader = ({ size }) => {
     return (
         <div className={size === 'small' ? styles.loaderContainerSmall : styles.loaderContainerBig}>
             <div className={size === 'small' ? styles.loaderSmall : styles.loaderBig}>
@@ -13,3 +15,7 @@ const Loader = ({size}) => {
 };
 
 export default Loader;
+
+Loader.propTypes = {
+    size: PropTypes.string,
+}

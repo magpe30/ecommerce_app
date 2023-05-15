@@ -11,7 +11,6 @@ import axiosConfig from '../../axiosConfig';
 import Loader from '../Loader/Loader';
 
 import styles from './checkout.module.scss';
-;
 
 const Checkout = ({stripe, elements}) => {
     const [stripeError, setStripeError] = useState('');

@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import {useNavigate} from 'react-router-dom';
+import React,{ useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
@@ -75,7 +75,7 @@ const Login = () => {
                     <p key={message} className={styles.error}>{message}</p>
                 ))
             }
-            <p>Don't have an account? <Link to='/signin' className={styles.loginLink}>Create account</Link></p>
+            <p>Don&apost have an account? <Link to='/signin' className={styles.loginLink}>Create account</Link></p>
         </section>
     )
 };

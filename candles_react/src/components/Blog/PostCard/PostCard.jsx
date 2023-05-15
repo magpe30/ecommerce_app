@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import styles from './postCard.module.scss';
 
 const PostCard = ({ data }) => {
@@ -33,3 +34,7 @@ const PostCard = ({ data }) => {
 };
 
 export default PostCard;
+
+PostCard.propTypes = {
+  data: PropTypes.object,
+}
