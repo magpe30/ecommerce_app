@@ -5,6 +5,7 @@ import axiosConfig from '../../axiosConfig';
 
 import Card from './Card/Card';
 import Loader from '../Loader/Loader';
+import Error from '../NotFound/Error';
 
 const Shop = () => {
     const { data, isLoading } = useGetAllProductsQuery();
@@ -26,7 +27,6 @@ const Shop = () => {
         setProducts(dataSet?.products);
       } catch (error) {
         setIsError(true);
-        console.log(error);
       } finally {
           setLoading(false);
       }
@@ -34,6 +34,10 @@ const Shop = () => {
 
     const getData = () => {
       setProducts(data);
+    }
+
+    if(isError) {
+      return <Error />
     }
 
     return (

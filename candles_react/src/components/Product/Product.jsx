@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart, getTotal } from '../../features/cartSlice';
 import Loader from '../Loader/Loader';
+import Error from '../NotFound/Error';
 import axiosConfig from '../../axiosConfig';
 
 import styles from './product.module.scss';
@@ -46,7 +47,7 @@ const Product = () => {
     }
 
     if(isError) {
-        console.log("console error for now")
+        return <Error />
     }
 
     const handleAddToCart = (product) => {

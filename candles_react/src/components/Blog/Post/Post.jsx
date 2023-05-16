@@ -3,11 +3,13 @@ import { useParams } from 'react-router-dom';
 import { getPostDetails } from '../services/index';
 import moment from 'moment';
 import Loader from '../../Loader/Loader';
+import Error from '../../NotFound/Error';
 
 import styles from './post.module.scss';
 
 const Post =() => {
     const [post, setPost] = useState(null);
+    const [isError, setIsError] = useState(null);
     const [loading, setLoading] = useState(false);
     const {post_slug } = useParams();
 
@@ -15,14 +17,18 @@ const Post =() => {
         setLoading(true);
         getPostDetails(post_slug)
         .then((currentPost) => setPost(currentPost))
-        .catch((err) => console.log(err))
+        .catch((err) => setIsError(err))
         .finally(setLoading(false));
     }, []);
     
     if(loading) {
         return <Loader size={'big'}/>
     }
-    console.log(post);
+
+    if(isError) {
+        return <Error />
+    }
+    
     return (
         <div className={styles.postContainer}>
             <img src={post?.featuredImage?.url} className={styles.featuredImage} alt={post?.title}/>

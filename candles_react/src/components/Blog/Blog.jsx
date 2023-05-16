@@ -6,19 +6,26 @@ import { request } from 'graphql-request'
 
 import PostCard from './PostCard/PostCard';
 import Categories from './Categories/Categories';
+import Loader from '../Loader/Loader';
 import styles from './blog.module.scss';
 
 const Blog = () => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const fetchPosts = async () => {
+          setIsLoading(true);
           const { postsConnection: edges } = await request(GRAPHQL_API, ALL_POSTS);
           setData(edges)
         };
     
-        fetchPosts();
+        fetchPosts().then(() => setIsLoading(false))
     }, []);
+
+    if(isLoading) {
+        return <Loader />
+    }
 
     return (
         <div className={styles.blogContainer}>

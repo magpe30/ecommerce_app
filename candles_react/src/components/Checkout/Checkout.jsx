@@ -3,18 +3,21 @@ import {useNavigate} from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from 'react-redux';
 import { CardElement } from '@stripe/react-stripe-js';
+import PropTypes from 'prop-types';
 
 import { clearCart } from '../../features/cartSlice';
 
 import axiosConfig from '../../axiosConfig';
 
 import Loader from '../Loader/Loader';
+import Error from '../NotFound/Error';
 
 import styles from './checkout.module.scss';
 
 const Checkout = ({stripe, elements}) => {
     const [stripeError, setStripeError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(null);
     const cart = useSelector(state => state.cart);
     const token = useSelector(state => state.auth.token);
 
@@ -62,12 +65,13 @@ const Checkout = ({stripe, elements}) => {
 
             await axiosConfig.post('/api/v1/checkout/', finalData)
                 .then(response => {
-                    console.log(response);
-                    dispatch(clearCart());
-                    navigate('/cart/success');
+                    if( response) {
+                        dispatch(clearCart());
+                        navigate('/cart/success');
+                    }
                 })
                 .catch(error => {
-                    console.log(error);
+                    setIsError(error);
                 })
                 .finally(() => {
                     setIsLoading(false);
@@ -85,6 +89,10 @@ const Checkout = ({stripe, elements}) => {
             axiosConfig.defaults.headers.common["Authorization"] = "Token " + token;
             tokenHandler(result.token.id)
         }
+    }
+
+    if(isError) {
+        return <Error />
     }
 
     return (
@@ -177,3 +185,8 @@ const Checkout = ({stripe, elements}) => {
 };
 
 export default Checkout;
+
+Checkout.propTypes = {
+    stripe: PropTypes.object,
+    elements: PropTypes.object,
+  }

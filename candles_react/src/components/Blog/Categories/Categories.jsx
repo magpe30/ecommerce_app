@@ -3,15 +3,22 @@ import { Link } from 'react-router-dom';
 import { getCategories } from '../services/index';
 import styles from './categories.module.scss';
 
+import Error from '../../NotFound/Error';
+
 const Categories = () => {
     const [categories, setCategories] = useState([]);
+    const [isError, setIsError] = useState(null);
 
     useEffect(() => {
        getCategories()
-        .then((newCategories) => setCategories(newCategories));
+        .then((newCategories) => setCategories(newCategories))
+        .catch(error => setIsError(error));
     }, []);
 
-    console.log(categories?.categories)
+    if(isError) {
+        return <Error />
+    }
+
     return (
         <div className={styles.categoriesContainer}>
             <div className={styles.header}>

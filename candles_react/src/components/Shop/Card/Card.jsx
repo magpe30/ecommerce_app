@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './card.module.scss';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Card = ({name, source, price, url}) => {
     return (
@@ -16,3 +17,10 @@ const Card = ({name, source, price, url}) => {
 };
 
 export default Card;
+
+Card.propTypes = {
+    name: PropTypes.string,
+    source: PropTypes.string,
+    price: PropTypes.oneOfType[PropTypes.string, PropTypes.number],
+    url: PropTypes.string,
+}
