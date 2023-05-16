@@ -1,7 +1,14 @@
 # ecommerce_app
 Ecommerce App
 
-Simple Ecommerce App - django backend and react frontend with Redux state managment:
+fully fledged Ecommerce App - built with:
+- Django Backend
+- React Frontend
+- Redux State
+- Stripe for payments
+- GraphQL for Blog feature
+- Simple Login/Logout with web tokens
+- Toastify package for toasts and state change handling on UI 
 
 UI screenshots 
 
