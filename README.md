@@ -6,7 +6,7 @@ fully fledged Ecommerce App - built with:
 - React Frontend
 - Redux State
 - Stripe for payments
-- GraphQL for Blog feature
+- GraphQL + Hygraph CMS for Blog feature
 - Simple Login/Logout with web tokens
 - Toastify package for toasts and state change handling on UI 
 
