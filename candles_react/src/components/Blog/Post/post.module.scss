@@ -14,12 +14,12 @@
 
     h1 {
         position: absolute;
-        background: #F2BA37;
+        background-color: #F2BA37;
         border-radius: 5px;
-        font-size: 40px;
+        font-size: 30px;
         margin-left: 10px;
         max-width: 550px;
-        padding-left: 5px;
+        padding: 5px;
         transform: translateY(-100px)
     }
 
@@ -31,10 +31,6 @@
 
         .author {
             display: flex;
-
-            img {
-                max-width: 50px;
-            }
         }
     }
 }

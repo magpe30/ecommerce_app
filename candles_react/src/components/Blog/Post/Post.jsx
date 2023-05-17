@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getPostDetails } from '../services/index';
+import { getContentFragment } from '../../../utilities';
 import moment from 'moment';
+import Author from '../Author/Author';
+import CommentForm from '../CommentForm/CommentForm';
 import Loader from '../../Loader/Loader';
 import Error from '../../NotFound/Error';
 
@@ -28,23 +31,30 @@ const Post =() => {
     if(isError) {
         return <Error />
     }
-    
+   
     return (
         <div className={styles.postContainer}>
             <img src={post?.featuredImage?.url} className={styles.featuredImage} alt={post?.title}/>
             <h1>{post?.title}</h1>
             <div className={styles.postInfo}>
                 <div className={styles.author}>
-                    <img src={post?.author?.photo.url} alt={post?.author.name}/>
                     <p>By {post?.author.name}</p>
                 </div>
                 <p>{moment(post?.createdAt).format('MMM DD, YYYY')}</p>
             </div>
             <div className={styles.content}>
-                <p>
-                    {post?.content.text}
-                </p>
+            {post?.content.raw.children.map((typeObj, index) => {
+              const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
+
+              return getContentFragment(index, children, typeObj, typeObj.type);
+            })}
             </div>
+            <Author 
+                url={post?.author?.photo.url}
+                name={post?.author.name}
+                bio={post?.author.bio}
+            />
+            <CommentForm slug={post_slug}/>
         </div>
     )
 };
