@@ -1,0 +1,61 @@
+@import '../../../mixins.scss';
+
+.commentsContainer {
+    background-color: #f0c599;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin-top: 15px;
+
+    .textarea {
+        width: 100%;
+        max-width: 100%;
+        background: #f0d9c3;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .textarea::placeholder {
+        color: #0F3996;
+        font-weight: 600;
+        font-family: 'Libre Baskerville', serif;
+        padding: 4px 0 0 4px;
+    }
+
+    .credentials {
+        display: flex;
+        justify-content: space-between;
+
+        input {
+            background: #f0d9c3;
+            border: none;
+            border-radius: 5px;
+            padding: 10px; 
+            width: 100%;
+        }
+
+        input::placeholder {
+            color: #0F3996;
+            font-weight: 600;
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        input:nth-child(1) {
+            margin-right: 5px;
+        }
+    }
+
+
+    .buttonContainer {
+        cursor: pointer;
+        text-align: right;
+        margin-top: 15px;
+
+        button {
+            @include button-primary;
+        }
+    }
+
+    .checkbox {
+        margin-top: 15px;
+    }
+}

@@ -5,6 +5,7 @@ import { getContentFragment } from '../../../utilities';
 import moment from 'moment';
 import Author from '../Author/Author';
 import CommentForm from '../CommentForm/CommentForm';
+import Comments from '../Comments/Comments';
 import Loader from '../../Loader/Loader';
 import Error from '../../NotFound/Error';
 
@@ -43,11 +44,11 @@ const Post =() => {
                 <p>{moment(post?.createdAt).format('MMM DD, YYYY')}</p>
             </div>
             <div className={styles.content}>
-            {post?.content.raw.children.map((typeObj, index) => {
-              const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
+                {post?.content.raw.children.map((typeObj, index) => {
+                const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
 
-              return getContentFragment(index, children, typeObj, typeObj.type);
-            })}
+                return getContentFragment(index, children, typeObj, typeObj.type);
+                })}
             </div>
             <Author 
                 url={post?.author?.photo.url}
@@ -55,6 +56,7 @@ const Post =() => {
                 bio={post?.author.bio}
             />
             <CommentForm slug={post_slug}/>
+            <Comments slug={post_slug}/>
         </div>
     )
 };
